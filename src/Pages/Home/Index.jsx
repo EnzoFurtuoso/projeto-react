@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { v4 } from 'uuid'
+import { AddButton, Container, Produto, DeleteButton } from './styles'
 
 // React Hooks
 // useRef
@@ -25,19 +26,19 @@ function Home() {
   }
 
   return (
-    <div>
+    <Container>
       <h1>Lista de Compras</h1>
       <input type="text" placeholder='produto...' ref={inputRef} />
-      <button onClick={cliqueNoBotao}>Adicionar</button>
+      <AddButton onClick={cliqueNoBotao}>Adicionar</AddButton>
 
       {produtos.map((produto) => (
-        <div key={produto.id}>
+        <Produto key={produto.id}>
           <p>{produto.nome}</p>
-          <button onClick={() => deletarProduto(produto.id)}>🗑️</button>
-        </div>
+          <DeleteButton onClick={() => deletarProduto(produto.id)}>🗑️</DeleteButton>
+        </Produto>
       ))}
 
-    </div>
+    </Container>
   )
 }
 
